@@ -44,6 +44,12 @@ plt.text(0,0.07,'this is c')
 plt.title('Dalideco', fontsize=40)
 plt.show()
 
+
+#%%
+print(type(df))
+print(type(df.letter))
+print(df.head())
+
 # %%
 plt.scatter(
     df.letter, 
@@ -60,4 +66,18 @@ plt.ylabel('frequency',fontsize=20,color="blue")
 plt.text(0,0.07,'this is c')
 plt.title('Dalideco', fontsize=40)
 plt.show()
+plt.clf()
+
+#%%
+plt.hist(df.frequency)
+plt.show()
+plt.clf()
+
 # %%
+plt.bar(df.x, df.y ,yerr=df.error,bottom=df.z) #vertical bars
+#use teh bottom argument to both cat and dog kidnapping on top of each other for exp
+plt.barh(df.x,df.y)#horizontal bars
+plt.hist(df.mass,bins=40,range=(2,12),density=True) #histogram bins = number of divisions and rage = min and max to show
+#density= True makes the bars use proportion insted of count
+plt.xscale('log')# puts the x axis on a logarithmic scale
+plt.clf()#clears graph so you can start fresh
