@@ -81,3 +81,7 @@ plt.hist(df.mass,bins=40,range=(2,12),density=True) #histogram bins = number of 
 #density= True makes the bars use proportion insted of count
 plt.xscale('log')# puts the x axis on a logarithmic scale
 plt.clf()#clears graph so you can start fresh
+plt.yticks([0,2,4,6,8,10])#modifies the values shown on the yaxis
+plt.yticks([0,2,4,6,8,10],['0B','2B','4B','6B','8B','10B']) #modifies the variables on the y axis names
+plt.scatter(x,y, s=popsize)# s is the array that contains the size of each point
+plt.grid(True) #shows gridlines
