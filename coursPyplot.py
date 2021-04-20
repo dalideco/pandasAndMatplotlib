@@ -85,3 +85,4 @@ plt.yticks([0,2,4,6,8,10])#modifies the values shown on the yaxis
 plt.yticks([0,2,4,6,8,10],['0B','2B','4B','6B','8B','10B']) #modifies the variables on the y axis names
 plt.scatter(x,y, s=popsize)# s is the array that contains the size of each point
 plt.grid(True) #shows gridlines
+
