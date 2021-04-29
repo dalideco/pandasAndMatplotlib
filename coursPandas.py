@@ -35,3 +35,22 @@ print(lett)
 #%%
 df.loc["RU"]#get row also double brackets to get it as a dataframe
 df.iloc[]#same thing but with numbers 
+
+df.sort_values("weight_kg") # we can put ascending argument as false and we can also use an array for mutiple columns
+
+#%%
+for lab,row in df.iterrows():
+    print("{} : {}".format(lab,row['frequency']))
+
+#%%
+df[column].cumsum() #returns cumulative sum of column
+cummax(), cummin() #etc
+df.drop_duplicates(subset="column")#argument subet can receive an array
+pandaSeries.value_counts()# returens the number of each value
+pandaSeries.value_counts(normalize = True,sort=True) #gets proportions and gets them sorted
+.sum()
+df.groupby('type').agg([min,max,sum,np.mean,np.median]) # an array could be used for multiple columns
+df.pivot_table(values="weight_kg",index="type",aggfunc=[np.median, np.mean, min ,max])#does the saem thing . 
+#we can another column with columns argument
+#fill_value= 0 replaces NaN with 0
+#margins = True add an all column (for each type in this case)
