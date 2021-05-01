@@ -54,3 +54,7 @@ df.pivot_table(values="weight_kg",index="type",aggfunc=[np.median, np.mean, min 
 #we can another column with columns argument
 #fill_value= 0 replaces NaN with 0
 #margins = True add an all column (for each type in this case)
+df.set_index("names")#can use multiple columns with array
+df.reset_index()#can set argument drop to True to delete previous index
+df.sort_index(level=['color','type'],ascending=[True,False])
+
