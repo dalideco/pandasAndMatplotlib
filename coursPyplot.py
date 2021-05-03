@@ -22,7 +22,7 @@ df = pd.read_csv(os.path.dirname(__file__)+"/letter_frequency.csv") # reading cs
 print(df.keys())
 
 #%%
-plt.plot(df.index, df.frequency,label='Ransom')# label will let us create a legend for our graph
+plt.plot(df['letter'], df.frequency,label='Ransom')# label will let us create a legend for our graph
 plt.show()
 
 # %%
@@ -69,7 +69,8 @@ plt.show()
 plt.clf()
 
 #%%
-plt.hist(df.frequency)
+plt.hist(df.frequency)# can be replaced by df['frequency'].hist
+#alpha argument sets the transparency
 plt.show()
 plt.clf()
 
@@ -84,5 +85,4 @@ plt.clf()#clears graph so you can start fresh
 plt.yticks([0,2,4,6,8,10])#modifies the values shown on the yaxis
 plt.yticks([0,2,4,6,8,10],['0B','2B','4B','6B','8B','10B']) #modifies the variables on the y axis names
 plt.scatter(x,y, s=popsize)# s is the array that contains the size of each point
-plt.grid(True) #shows gridlines
-
+plt.grid(True) #shows gridlines 
