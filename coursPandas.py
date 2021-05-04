@@ -49,7 +49,7 @@ df.sort_values("column")#or array and ascending boolean argument
 
 
 
-df.drop_duplicates(subset="column")#argument subet can receive an array
+df.drop_duplicates(subset="column")#argument subset can receive an array
 pandaSeries.value_counts()# returens the number of each value
 pandaSeries.value_counts(normalize = True,sort=True) #gets proportions and gets them sorted
 .sum()
@@ -70,6 +70,7 @@ df['column'].hist()#same as plt.hist(df['column'])
 df.plot(x="", y="", kind="line",rot=45)
 #kind can be scatter or bar
 df.isna() # returns dataframe with false on missing tables and true on non missing
+# we can also use isnull() method
 df.isna().any # returns if there are any missing values to each column
 df.isna().sum().plot(kind="bar") # plots the missing data for each column on a bar
 df.dropna() # removes rown containing NaN
@@ -77,9 +78,33 @@ df.fillna(0) #replaces all NaNs with 0
 pd.DataFrame(dictionary) #converts dictionary into pandas dataFrame
 pd.read_csv('name.csv')#reads csv file into a dataframe
 df.to_csv('name.csv')#writes dataframe in a csv file
+df.plot(x="",y="",kind="")
 
 
 #mergin 
 df.merge(df1 , on="ward",suffixes=('_df','_df1'),how="left") # same as sql inner join on ward
 #suffixes argument allows us to tell the difference between the columns 
 #argument how specifies if it is a left or right join
+df.merge(df1, on="" , how="inner/outer/left/right",right_on="",left_on="", \
+    right_index="True/False" , left_index="True/False", indicator='True/False',\
+        validate="None/one_to_one/one_to_many/many_to_many/many_to_one") 
+# we can use left_on and right_on for different column names 
+# if for exp left_on is an index specify left_index=True
+#set indicator to True to get a column _merge that specifies where de row came from(left_only/right_only/both)
+
+df['column'].isin(df1['column'])# works for each row of the df1 column
+pd.concat([df1,df2,df3], ignore_index=True, \
+    keys=['table1','table2','table3'],sort="True/False",join="inner/outer",\
+        verify_integrity="True/False")
+#ignore index true create new index and removes the tables indexes
+#sort leaves the rows sorted as they were in their original table
+df.append()#same as concat but without the keys and join argument
+pd.merge_ordered(fill_method="ffill")# same as df.merge() 
+#fill_method decides how to fill NaN
+df.corr()#prints correlation matrix
+pd.merge_asof(df,df1, on="", suffixes=('',''), direction="backward/forward/nearest")
+#default backward direction returns the columns oof the right table 
+#   where the on is the nearest inferior to the on of the left table row
+df.melt(id_vars=[], value_vars=[], var_name='', value_name='')
+#melts table of many columns with more rows with variable and value column
+pd.to_datetime(df['year']+'-'+df['month'])#converts to date type
