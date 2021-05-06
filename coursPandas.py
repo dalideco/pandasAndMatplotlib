@@ -30,6 +30,7 @@ print(df.head())
 
 #%%
 lett = pd.read_csv('letter_frequency.csv', index_col=0)#it changes the index as the first column of the table
+#can use parse_dates argument that takes an array containing the date columns
 print(lett)
 
 #%%

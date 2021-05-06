@@ -86,3 +86,27 @@ plt.yticks([0,2,4,6,8,10])#modifies the values shown on the yaxis
 plt.yticks([0,2,4,6,8,10],['0B','2B','4B','6B','8B','10B']) #modifies the variables on the y axis names
 plt.scatter(x,y, s=popsize)# s is the array that contains the size of each point
 plt.grid(True) #shows gridlines 
+
+
+#introduction to matplotlib 
+fig,ax = plt.subplots()# we can use plt.subplots for multiple plots
+plt.show()#fig is the figure and ax represents the axis
+ax.plot(seattle_weather['month'],seattle_weather['MLY'],marker="",linestyle="",color="")
+ax.set_xlabel('xlabel', color='red')# same as plt.xlabel along with .set_ylabel() and .set_title()
+ax.subplots(3,2,sharey=True)#example 
+#sharedy set to True makes tche graphs have the same range in the y axis
+ax[0,0]plot()#example
+ax2 = ax.twinx()#a twin that shares the same x axis but different y axis
+ax.tick_params('y', colors='red')
+ax.annotate(">1 degree", xy=(pd.Timestamp("2018-05-05"),1), \
+    xytext=(pd.Timestamp('2008-10-08')), \
+    arrowprops={"arrowstyle":"->","color":"gray"})#annotate a place in the graph
+#pd.Timestamp makes is doable with date objects
+#xytext optional argument that decides the place of the text
+# we add empty arrowprops argument to show arrow and we can custmize it
+ax.bar()# corresponds to plt.bar()
+ax.set_xticklabels(medium.index, rotation = 90)
+ax.hist(y, label ="", bins=[],histtype="step")#same as hist , we can put bins to be a sequence of numbers
+# histtype optional argument put to "step" causes histogram's body to be transparent(only border shown)
+ax.errorbar(x,y , yerr=z)#line plot with error on each point
+ax.boxplot([])# create a box plot
