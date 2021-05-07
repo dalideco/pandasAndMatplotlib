@@ -6,6 +6,8 @@ import os
 
 #%%
 plt.style.use('seaborn') #possible "fivethirtyeight" "ggplot" "seaborn" "default"
+#use grayscale for black and white
+#avoid using dark themes unless you have a reason
 
 #%%
 print("hello")
@@ -110,3 +112,10 @@ ax.hist(y, label ="", bins=[],histtype="step")#same as hist , we can put bins to
 # histtype optional argument put to "step" causes histogram's body to be transparent(only border shown)
 ax.errorbar(x,y , yerr=z)#line plot with error on each point
 ax.boxplot([])# create a box plot
+fig.savefig("gold_medals.jpg", quality=50, dpi=300, )#save the graph file instead of showing it , 
+#you can also use jpg
+#if it's jpg you can use quality argument which takes a value between 1 and 100
+#avoid quality superior to 95 cuz the compression is no longer effective
+#yyou can savee svg files
+# you can use dpi argument (the higher the more densed the image) perferably set dpi to 300
+fig.set_size_inches([5,3])#set the size of the figure

@@ -109,3 +109,4 @@ pd.merge_asof(df,df1, on="", suffixes=('',''), direction="backward/forward/neare
 df.melt(id_vars=[], value_vars=[], var_name='', value_name='')
 #melts table of many columns with more rows with variable and value column
 pd.to_datetime(df['year']+'-'+df['month'])#converts to date type
+df['column'].unique()#get a series of all the different values of that column
